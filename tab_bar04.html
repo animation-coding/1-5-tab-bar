@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+
+    <style>
+        *,
+        *:after,
+        *:before {
+            box-sizing: border-box;
+        }
+
+        .container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            color: #303030;
+            background-color: #f5f5fb;
+        }
+
+        .menu {
+            display: flex;
+            flex-grow: 1;
+            height: 72px;
+            max-width: 370px;
+            border-radius: 40px;
+
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 0 1px 0 rgba(52, 46, 173, 0.25), 0 15px 30px 0 rgba(52, 46, 173, 0.1);
+        }
+
+        .menu-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            text-decoration: none;
+        }
+
+        .menu-item:focus,
+        .menu-item:hover {
+            outline: none;
+        }
+
+        .menu-item:focus .material-icons,
+        .menu-item:hover .material-icons {
+            font-family: "Material Icons";
+            color: #004ff0;
+        }
+
+        .menu-item:focus .menu-item-label,
+        .menu-item:hover .menu-item-label {
+            color: #004ff0;
+        }
+
+        .material-icons {
+            font-family: "Material Icons Outlined";
+            display: block;
+            margin-bottom: 4px;
+            font-size: 26px;
+            color: #90b1f5;
+            transition: 0.25s ease;
+        }
+
+        .menu-item-label {
+            display: block;
+            font-size: 13px;
+            color: #90b1f5;
+            transition: 0.25s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- code here -->
+        <nav class="menu">
+            <a href="#" class="menu-item">
+                <span class="material-icons">sports_esports</span>
+                <span class="menu-item-label">Games</span>
+            </a>
+            <a href="#" class="menu-item">
+                <span class="material-icons">camera_alt</span>
+                <span class="menu-item-label">Images</span>
+            </a>
+            <a href="#" class="menu-item">
+                <span class="material-icons">movie</span>
+                <span class="menu-item-label">Movies</span>
+            </a>
+            <a href="#" class="menu-item">
+                <span class="material-icons">store_mall_directory</span>
+                <span class="menu-item-label">Store</span>
+            </a>
+        </nav>
+        <!-- end of code -->
+    </div>
+</body>
+
+</html>

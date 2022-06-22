@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #222327;
+            height: 100vh;
+        }
+
+        .navbar {
+            width: 400px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 10px;
+            position: relative;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 10px;
+        }
+
+        .navbar ul {
+            display: flex;
+            width: 350px;
+        }
+
+        .navbar ul li {
+            list-style: none;
+            text-align: center;
+            position: relative;
+            /* 350px / 5 = 70px */
+            width: 70px;
+            height: 60px;
+            z-index: 2;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .navbar ul li a .icon {
+            position: relative;
+            line-height: 65px;
+            font-size: 1.5rem;
+            transition: 0.5s;
+            -webkit-transition: 0.5s;
+            -moz-transition: 0.5s;
+            -ms-transition: 0.5s;
+            -o-transition: 0.5s;
+            color: #222327;
+        }
+
+        .navbar ul li.active a .icon {
+            transform: translateY(-32px);
+            -webkit-transform: translateY(-32px);
+            -moz-transform: translateY(-32px);
+            -ms-transform: translateY(-32px);
+            -o-transform: translateY(-32px);
+            color: #f44336;
+        }
+
+        .navbar ul li a .text {
+            position: absolute;
+            background-color: #f44336;
+            color: #fff;
+            padding: 2px 7px;
+            border-radius: 12px;
+            -webkit-border-radius: 12px;
+            -moz-border-radius: 12px;
+            -ms-border-radius: 12px;
+            -o-border-radius: 12px;
+            font-weight: 400;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            transition: 0.5s;
+            -webkit-transition: 0.5s;
+            -moz-transition: 0.5s;
+            -ms-transition: 0.5s;
+            -o-transition: 0.5s;
+            opacity: 0;
+            transform: translateY(15px);
+            -webkit-transform: translateY(15px);
+            -moz-transform: translateY(15px);
+            -ms-transform: translateY(15px);
+            -o-transform: translateY(15px);
+        }
+
+        .navbar ul li.active a .text {
+            transform: translateY(-4px);
+            -webkit-transform: translateY(-4px);
+            -moz-transform: translateY(-4px);
+            -ms-transform: translateY(-4px);
+            -o-transform: translateY(-4px);
+            opacity: 1;
+        }
+
+        .navbar ul .indicator {
+            width: 70px;
+            height: 70px;
+            position: absolute;
+            top: -35px;
+            background-color: #fff;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+            z-index: 1;
+            transition: 0.5s;
+            -webkit-transition: 0.5s;
+            -moz-transition: 0.5s;
+            -ms-transition: 0.5s;
+            -o-transition: 0.5s;
+        }
+
+        .navbar ul .indicator::before {
+            content: "";
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            background-color: transparent;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+            top: 5px;
+            left: -28px;
+            box-shadow: 15px 18px #fff;
+        }
+
+        .navbar ul .indicator::after {
+            content: "";
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            background-color: transparent;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+            top: 5px;
+            right: -28px;
+            box-shadow: -15px 18px #fff;
+        }
+
+        .navbar ul li:nth-child(1).active~.indicator {
+            transform: translateX(calc(70px * 0));
+            -webkit-transform: translateX(calc(70px * 0));
+            -moz-transform: translateX(calc(70px * 0));
+            -ms-transform: translateX(calc(70px * 0));
+            -o-transform: translateX(calc(70px * 0));
+        }
+
+        .navbar ul li:nth-child(2).active~.indicator {
+            transform: translateX(calc(70px * 1));
+            -webkit-transform: translateX(calc(70px * 1));
+            -moz-transform: translateX(calc(70px * 1));
+            -ms-transform: translateX(calc(70px * 1));
+            -o-transform: translateX(calc(70px * 1));
+        }
+
+        .navbar ul li:nth-child(3).active~.indicator {
+            transform: translateX(calc(70px * 2));
+            -webkit-transform: translateX(calc(70px * 2));
+            -moz-transform: translateX(calc(70px * 2));
+            -ms-transform: translateX(calc(70px * 2));
+            -o-transform: translateX(calc(70px * 2));
+        }
+
+        .navbar ul li:nth-child(4).active~.indicator {
+            transform: translateX(calc(70px * 3));
+            -webkit-transform: translateX(calc(70px * 3));
+            -moz-transform: translateX(calc(70px * 3));
+            -ms-transform: translateX(calc(70px * 3));
+            -o-transform: translateX(calc(70px * 3));
+        }
+
+        .navbar ul li:nth-child(5).active~.indicator {
+            transform: translateX(calc(70px * 4));
+            -webkit-transform: translateX(calc(70px * 4));
+            -moz-transform: translateX(calc(70px * 4));
+            -ms-transform: translateX(calc(70px * 4));
+            -o-transform: translateX(calc(70px * 4));
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li class="list active">
+                <a href="#">
+                    <span class="icon">
+                        <i class="fas fa-home"></i>
+                    </span>
+                    <span class="text">Home</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon">
+                        <i class="far fa-user"></i>
+                    </span>
+                    <span class="text">Profile</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon">
+                        <i class="far fa-comment"></i>
+                    </span>
+                    <span class="text">Messages</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon">
+                        <i class="fas fa-camera-retro"></i>
+                    </span>
+                    <span class="text">Photos</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon">
+                        <i class="fas fa-cog"></i>
+                    </span>
+                    <span class="text">Setting</span>
+                </a>
+            </li>
+            <div class="indicator"></div>
+        </ul>
+    </div>
+    <script>
+        let list = document.querySelectorAll(".list");
+        function activelink() {
+            list.forEach((item) => item.classList.remove("active"));
+            this.classList.add("active");
+        }
+        list.forEach((item) => item.addEventListener("click", activelink));
+
+    </script>
+</body>
+
+</html>
